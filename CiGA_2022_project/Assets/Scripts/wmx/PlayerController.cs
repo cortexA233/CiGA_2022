@@ -20,10 +20,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        stateMachine = new PlayerFSM(this);
         rigid2D = GetComponent<Rigidbody2D>();
         hookObj = transform.Find("hook").gameObject;
         hookController = hookObj.GetComponent<HookController>();
+        stateMachine = new PlayerFSM(this);
     }
     void Start()
     {
@@ -49,5 +49,26 @@ public class PlayerController : MonoBehaviour
     public bool CheckHookHasCaught() 
     {
         return hookController.isCatching;
+    }
+
+    public void FollowMousePosition()
+    {
+        //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Vector2 curPos = transform.position;
+        //transform.up =  curPos - mousePosition;
+        Vector2 direction = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        direction.y = Mathf.Max(Mathf.Abs(direction.x) * 0.1f, direction.y);
+        //transform.up = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.up = direction;
+    }
+
+    public void ClearHook()
+    {
+        hookController.isCatching = false;
+        if (hookController.caughtObj != null)
+        {
+            Destroy(hookController.caughtObj);
+            ++GlobalUtils.instance.score;
+        }
     }
 }

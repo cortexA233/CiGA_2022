@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HookController : MonoBehaviour
 {
-    public bool isCatching = false;
+    [HideInInspector] public bool isCatching = false;
+    [HideInInspector] public GameObject caughtObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,15 +15,28 @@ public class HookController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (caughtObj != null)
+        {
+            caughtObj.transform.position = transform.position;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("coin"))
+        //Debug.Log("trigger");
+        if (collider.CompareTag("Coin"))
         {
             isCatching = true;
+            Debug.Log("catch");
+            caughtObj = collider.gameObject;
         }
-        isCatching = true;
+        if(collider.CompareTag("Enemy")&& collider.CompareTag("Barrier"))
+        {
+            if (caughtObj != null)
+            {
+                caughtObj = null;
+            }
+        }
     }
+
 }

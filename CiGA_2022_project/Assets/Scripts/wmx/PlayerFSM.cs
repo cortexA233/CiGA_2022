@@ -32,7 +32,9 @@ public class PlayerFSM : BaseFSM
         }
         public override void EnterState()
         {
+            controller.ClearHook();
             controller.transform.localScale = new Vector2(1, 1);
+            controller.hookObj.transform.localScale = new Vector2(6, 6);
         }
 
         public override void ExitState()
@@ -57,8 +59,9 @@ public class PlayerFSM : BaseFSM
 
         public override void HandleUpdate()
         {
-            //Debug.Log("Idle");
-            if (Input.GetKeyDown(KeyCode.Space))
+            Debug.Log("Idle");
+            controller.FollowMousePosition();
+            if (Input.GetMouseButtonDown(0))
             {
                 controller.stateMachine.TransitState(new ShootState(controller));
             }
@@ -94,12 +97,12 @@ public class PlayerFSM : BaseFSM
 
         public override void HandleTrigger(Collider2D collider)
         {
-            Debug.Log("!!!");
+            //Debug.Log("!!!");
         }
 
         public override void HandleUpdate()
         {
-            //Debug.Log("Shoot");
+            Debug.Log("Shoot");
             controller.transform.localScale = new Vector2(controller.transform.localScale.x, controller.transform.localScale.y + controller.hookSpeed * Time.deltaTime);
             controller.hookObj.transform.localScale = new Vector2(controller.hookObj.transform.localScale.x, 6f / controller.transform.localScale.y);
             if (controller.transform.localScale.y > 55f)
@@ -108,6 +111,7 @@ public class PlayerFSM : BaseFSM
             }
             if (controller.CheckHookHasCaught() == true)
             {
+                //Debug.Log("!");
                 controller.stateMachine.TransitState(new BackState(controller));
             }
         }
@@ -147,7 +151,7 @@ public class PlayerFSM : BaseFSM
 
         public override void HandleUpdate()
         {
-            //Debug.Log("Back");
+            Debug.Log("Back");
             controller.transform.localScale = new Vector2(controller.transform.localScale.x, controller.transform.localScale.y - controller.hookSpeed * Time.deltaTime);
             controller.hookObj.transform.localScale = new Vector2(controller.hookObj.transform.localScale.x, 6f / controller.transform.localScale.y);
             if (controller.transform.localScale.y < 1f)
