@@ -49,7 +49,7 @@ public class PlayerFSM : BaseFSM
 
         public override void HandleUpdate()
         {
-
+            controller.HandleJumpInput();
         }
     }
 
@@ -87,7 +87,7 @@ public class PlayerFSM : BaseFSM
 
         public override void HandleUpdate()
         {
-            throw new System.NotImplementedException();
+            controller.HandleJumpInput();
         }
     }
 }

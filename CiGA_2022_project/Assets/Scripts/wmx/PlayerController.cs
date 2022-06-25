@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rigid2D { private set; get; }
 
     public float moveSpeed;
+    public float jumpForce;
 
     GameObject spriteObj;
     Vector2 curSpeed = new Vector2();
@@ -42,5 +43,16 @@ public class PlayerController : MonoBehaviour
         curSpeed = rigid2D.velocity;
         curSpeed.x = dirX * moveSpeed;
         rigid2D.velocity = curSpeed;
+    }
+
+    public void HandleJumpInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("?");
+            curSpeed = rigid2D.velocity;
+            curSpeed.y = jumpForce;
+            rigid2D.velocity = curSpeed;
+        }
     }
 }
