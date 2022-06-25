@@ -9,17 +9,21 @@ public class PlayerController : MonoBehaviour
     public Collider2D weaponHitbox { private set; get; }
     public Collider2D characterHitbox { private set; get; }
     public Rigidbody2D rigid2D { private set; get; }
+    public GameObject hookObj { private set; get; }
+    public HookController hookController { private set; get; }
 
-    public float moveSpeed;
-    public float jumpForce;
+    public float hookSpeed;
+    //public float jumpForce;
 
-    GameObject spriteObj;
-    Vector2 curSpeed = new Vector2();
+    //GameObject spriteObj;
+    //Vector2 curSpeed = new Vector2();
     // Start is called before the first frame update
     private void Awake()
     {
         stateMachine = new PlayerFSM(this);
         rigid2D = GetComponent<Rigidbody2D>();
+        hookObj = transform.Find("hook").gameObject;
+        hookController = hookObj.GetComponent<HookController>();
     }
     void Start()
     {
@@ -37,22 +41,13 @@ public class PlayerController : MonoBehaviour
         stateMachine.currentState.HandleFixedUpdate();
     }
 
-    public void HandleDirectionInput()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        float dirX = Input.GetAxis("Horizontal");
-        curSpeed = rigid2D.velocity;
-        curSpeed.x = dirX * moveSpeed;
-        rigid2D.velocity = curSpeed;
+        stateMachine.currentState.HandleTrigger(collision);
     }
 
-    public void HandleJumpInput()
+    public bool CheckHookHasCaught() 
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("?");
-            curSpeed = rigid2D.velocity;
-            curSpeed.y = jumpForce;
-            rigid2D.velocity = curSpeed;
-        }
+        return hookController.isCatching;
     }
 }
