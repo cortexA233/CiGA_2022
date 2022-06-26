@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fish: {fileID: 8814363079927171048, guid: ef2edf640852e9a4097351298aab6330, type: 3}
-  Coin: {fileID: 0}
+  Coin: {fileID: 6997312349370066226, guid: ab1d463d9825149428c30f2ca45fea32, type: 3}
