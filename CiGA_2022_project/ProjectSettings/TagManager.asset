@@ -7,6 +7,9 @@ TagManager:
   - Coin
   - Enemy
   - Barrier
+  - Fish
+  - Wall
+  - Bait
   layers:
   - Default
   - TransparentFX
@@ -43,4 +46,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 
+    locked: 0
