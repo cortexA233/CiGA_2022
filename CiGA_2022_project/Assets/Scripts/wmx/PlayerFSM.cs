@@ -105,7 +105,7 @@ public class PlayerFSM : BaseFSM
             Debug.Log("Shoot");
             controller.transform.localScale = new Vector2(controller.transform.localScale.x, controller.transform.localScale.y + controller.hookSpeed * Time.deltaTime);
             controller.hookObj.transform.localScale = new Vector2(controller.hookObj.transform.localScale.x, 6f / controller.transform.localScale.y);
-            if (controller.transform.localScale.y > 55f)
+            if (controller.transform.localScale.y > 111f)
             {
                 controller.stateMachine.TransitState(new BackState(controller));
             }

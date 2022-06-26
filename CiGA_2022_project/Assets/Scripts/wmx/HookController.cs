@@ -27,10 +27,22 @@ public class HookController : MonoBehaviour
         if (collider.CompareTag("Coin"))
         {
             isCatching = true;
-            Debug.Log("catch");
+            //Debug.Log("catch");
             caughtObj = collider.gameObject;
         }
-        if(collider.CompareTag("Enemy")&& collider.CompareTag("Barrier"))
+        if(collider.CompareTag("Enemy") || collider.CompareTag("Barrier"))
+        {
+            Debug.LogError("!!!");
+            if (caughtObj != null)
+            {
+                caughtObj = null;
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Enemy") || collider.CompareTag("Barrier"))
         {
             if (caughtObj != null)
             {
