@@ -61,6 +61,7 @@ public class PlayerFSM : BaseFSM
         {
             //Debug.Log("Idle");
             controller.HandleHorizantalInput();
+            controller.HandleThrowBaitInput();
             controller.FollowMousePosition();
             if (Input.GetMouseButtonDown(0))
             {

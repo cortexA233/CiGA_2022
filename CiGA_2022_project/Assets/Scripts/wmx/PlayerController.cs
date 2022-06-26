@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public float hookSpeed;
     public float moveSpeed;
+    public GameObject baitObj;
 
     //GameObject spriteObj;
     //Vector2 curSpeed = new Vector2();
@@ -51,6 +52,15 @@ public class PlayerController : MonoBehaviour
         float dirX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         //Debug.Log("dirx"+dirX.ToString());
         transform.Translate(new Vector3(dirX, 0), Space.World);
+    }
+
+    public void HandleThrowBaitInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            var baitItem = Instantiate(baitObj, transform);
+            baitItem.transform.parent = null;
+        }
     }
 
     public bool CheckHookHasCaught() 
