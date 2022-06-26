@@ -65,7 +65,7 @@ public class FishController : MonoBehaviour
         }
         else
         {
-            rigidbody.velocity = Vector3.zero;
+            rigidbody.velocity = Vector2.zero;
         }
     }
 
