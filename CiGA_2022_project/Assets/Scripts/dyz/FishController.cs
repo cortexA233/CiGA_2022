@@ -22,6 +22,8 @@ public class FishController : MonoBehaviour
 
         lookDirection = (Random.Range(0, 2) == 0) ? 1 : -1;
 
+        transform.localScale = new Vector3(-lookDirection * 0.862f, 0.586f, 1f);
+
         canMove = true;
 
         beAttracked = false;
@@ -82,7 +84,7 @@ public class FishController : MonoBehaviour
     {
         lookDirection *= -1;
 
-        transform.localScale = new Vector3(lookDirection, 0.586f, 1);
+        transform.localScale = new Vector3(-lookDirection * 0.862f, 0.586f, 1f);
     }
 
     /// <summary>
