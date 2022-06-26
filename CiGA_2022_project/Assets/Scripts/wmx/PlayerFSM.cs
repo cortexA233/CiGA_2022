@@ -33,8 +33,8 @@ public class PlayerFSM : BaseFSM
         public override void EnterState()
         {
             controller.ClearHook();
-            controller.transform.localScale = new Vector2(1, 1);
-            controller.hookObj.transform.localScale = new Vector2(6, 6);
+            controller.ropeObj.transform.localScale = new Vector2(1, 1);
+            controller.hookObj.transform.localScale = new Vector2(1, 1);
         }
 
         public override void ExitState()
@@ -105,9 +105,9 @@ public class PlayerFSM : BaseFSM
         public override void HandleUpdate()
         {
             //Debug.Log("Shoot");
-            controller.transform.localScale = new Vector2(controller.transform.localScale.x, controller.transform.localScale.y + controller.hookSpeed * Time.deltaTime);
-            controller.hookObj.transform.localScale = new Vector2(controller.hookObj.transform.localScale.x, 6f / controller.transform.localScale.y);
-            if (controller.transform.localScale.y > 111f)
+            controller.ropeObj.transform.localScale = new Vector2(controller.ropeObj.transform.localScale.x, controller.ropeObj.transform.localScale.y + controller.hookSpeed * Time.deltaTime);
+            controller.hookObj.transform.localScale = new Vector2(controller.hookObj.transform.localScale.x, 1f / controller.ropeObj.transform.localScale.y);
+            if (controller.ropeObj.transform.localScale.y > 111f)
             {
                 controller.stateMachine.TransitState(new BackState(controller));
             }
@@ -154,9 +154,9 @@ public class PlayerFSM : BaseFSM
         public override void HandleUpdate()
         {
             //Debug.Log("Back");
-            controller.transform.localScale = new Vector2(controller.transform.localScale.x, controller.transform.localScale.y - controller.hookSpeed * Time.deltaTime);
-            controller.hookObj.transform.localScale = new Vector2(controller.hookObj.transform.localScale.x, 6f / controller.transform.localScale.y);
-            if (controller.transform.localScale.y < 1f)
+            controller.ropeObj.transform.localScale = new Vector2(controller.ropeObj.transform.localScale.x, controller.ropeObj.transform.localScale.y - controller.hookSpeed * Time.deltaTime);
+            controller.hookObj.transform.localScale = new Vector2(controller.hookObj.transform.localScale.x, 1f / controller.ropeObj.transform.localScale.y);
+            if (controller.ropeObj.transform.localScale.y < 1f)
             {
                 controller.stateMachine.TransitState(new IdleState(controller));
             }

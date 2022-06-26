@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Collider2D characterHitbox { private set; get; }
     public Rigidbody2D rigid2D { private set; get; }
     public GameObject hookObj { private set; get; }
+    public GameObject ropeObj { private set; get; }
     public HookController hookController { private set; get; }
 
     public float hookSpeed;
@@ -22,7 +23,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rigid2D = GetComponent<Rigidbody2D>();
-        hookObj = transform.Find("hook").gameObject;
+        hookObj = transform.Find("rope/hook").gameObject;
+        ropeObj = transform.Find("rope").gameObject;
         hookController = hookObj.GetComponent<HookController>();
         stateMachine = new PlayerFSM(this);
     }
@@ -70,9 +72,9 @@ public class PlayerController : MonoBehaviour
 
     public void FollowMousePosition()
     {
-        Vector2 direction = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = ropeObj.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction.y = Mathf.Max(Mathf.Abs(direction.x) * 0.2f, direction.y);
-        transform.up = direction;
+        ropeObj.transform.up = direction;
     }
 
     public void ClearHook()
