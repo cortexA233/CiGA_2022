@@ -20,6 +20,7 @@ public class BaitController : MonoBehaviour
     {
         if (collider.CompareTag("Water"))
         {
+            Debug.Log("ÈëË®");
             GetComponent<Rigidbody2D>().gravityScale = 0;
         }
     }
