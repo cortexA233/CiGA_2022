@@ -10,6 +10,7 @@ TagManager:
   - Fish
   - Wall
   - Bait
+  - Water
   layers:
   - Default
   - TransparentFX
