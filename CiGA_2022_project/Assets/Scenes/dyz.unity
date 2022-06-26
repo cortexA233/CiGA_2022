@@ -130,9 +130,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4944088414114374494, guid: 29d6f871f8cc2a04d985141c1cbab1c5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7624651502745330802, guid: 29d6f871f8cc2a04d985141c1cbab1c5, type: 3}
       propertyPath: m_Name
       value: bait
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316153131172706234, guid: 29d6f871f8cc2a04d985141c1cbab1c5, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8707178904185244389, guid: 29d6f871f8cc2a04d985141c1cbab1c5, type: 3}
       propertyPath: m_RootOrder

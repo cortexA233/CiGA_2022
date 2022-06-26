@@ -10,11 +10,12 @@ public class FishController : MonoBehaviour
     private float speedUp;
     private int lookDirection;
     private Rigidbody2D rigidbody;
+    private float time;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
-    /// </summary>
+    /// </summary>image.png
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -28,6 +29,8 @@ public class FishController : MonoBehaviour
         speed = Random.Range(100f, 200f);
 
         speedUp = 0.1f;
+
+        time = 0f;
     }
 
     /// <summary>
@@ -35,10 +38,16 @@ public class FishController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (GameObject.Find("bait") == null)
+        if (canMove == false)
         {
-            canMove = true;
-            beAttracked = false;
+            time += Time.deltaTime;
+
+            if (time > 3)
+            {
+                canMove = true;
+                beAttracked = false;
+                time = 0;
+            }
         }
     }
 
@@ -52,7 +61,7 @@ public class FishController : MonoBehaviour
 
     void Move()
     {
-        if (canMove)
+        if (canMove == true)
         {
             if (beAttracked)
             {
@@ -109,21 +118,6 @@ public class FishController : MonoBehaviour
         {
             // Debug.Log("Attracked");
             beAttracked = true;
-        }
-    }
-
-    /// <summary>
-    /// Sent when another object leaves a trigger collider attached to
-    /// this object (2D physics only).
-    /// </summary>
-    /// <param name="other">The other Collider2D involved in this collision.</param>
-    void OnTriggerExit2D(Collider2D other)
-    {
-        // Debug.Log("Exit");
-        if (other.CompareTag("AttrackRange") || other.CompareTag("Bait"))
-        {
-            beAttracked = false;
-            canMove = true;
         }
     }
 }
