@@ -5,6 +5,7 @@ using UnityEngine;
 public class HookController : MonoBehaviour
 {
     [HideInInspector] public bool isCatching = false;
+    [HideInInspector] public bool collideFish = false;
     [HideInInspector] public GameObject caughtObj;
     // Start is called before the first frame update
     void Start()
@@ -30,13 +31,14 @@ public class HookController : MonoBehaviour
             //Debug.Log("catch");
             caughtObj = collider.gameObject;
         }
-        if(collider.CompareTag("Enemy") || collider.CompareTag("Barrier"))
+        if(collider.CompareTag("Enemy") || collider.CompareTag("Barrier") || collider.CompareTag("Fish"))
         {
             //Debug.LogError("!!!");
             if (caughtObj != null)
             {
                 caughtObj = null;
             }
+            collideFish = true;
         }
     }
 

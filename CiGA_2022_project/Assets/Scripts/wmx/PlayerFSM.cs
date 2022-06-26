@@ -111,7 +111,7 @@ public class PlayerFSM : BaseFSM
             {
                 controller.stateMachine.TransitState(new BackState(controller));
             }
-            if (controller.CheckHookHasCaught() == true)
+            if (controller.CheckHookHasCaught() == true || controller.CheckHookCollideFish() == true)
             {
                 //Debug.Log("!");
                 controller.stateMachine.TransitState(new BackState(controller));

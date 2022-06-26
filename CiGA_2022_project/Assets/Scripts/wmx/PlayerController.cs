@@ -70,6 +70,16 @@ public class PlayerController : MonoBehaviour
         return hookController.isCatching;
     }
 
+    public bool CheckHookCollideFish()
+    {
+        if(hookController.collideFish == true)
+        {
+            hookController.collideFish = false;
+            return true;
+        }
+        return false;
+    }
+
     public void FollowMousePosition()
     {
         Vector2 direction = ropeObj.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
