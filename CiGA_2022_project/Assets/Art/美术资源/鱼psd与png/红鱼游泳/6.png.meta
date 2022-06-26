@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d4077f3bebb7d8447892b714d91f22aa
+=======
+guid: 9257fa7da52dc6740b7b473ef3c36681
+>>>>>>> 5c3ff85ed60d2179df68adace060c609cf35095e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
