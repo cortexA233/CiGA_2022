@@ -32,7 +32,7 @@ public class HookController : MonoBehaviour
         }
         if(collider.CompareTag("Enemy") || collider.CompareTag("Barrier"))
         {
-            Debug.LogError("!!!");
+            //Debug.LogError("!!!");
             if (caughtObj != null)
             {
                 caughtObj = null;

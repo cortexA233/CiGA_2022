@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public HookController hookController { private set; get; }
 
     public float hookSpeed;
-    //public float jumpForce;
+    public float moveSpeed;
 
     //GameObject spriteObj;
     //Vector2 curSpeed = new Vector2();
@@ -46,6 +46,13 @@ public class PlayerController : MonoBehaviour
         stateMachine.currentState.HandleTrigger(collision);
     }
 
+    public void HandleHorizantalInput()
+    {
+        float dirX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
+        //Debug.Log("dirx"+dirX.ToString());
+        transform.Translate(new Vector3(dirX, 0), Space.World);
+    }
+
     public bool CheckHookHasCaught() 
     {
         return hookController.isCatching;
@@ -53,12 +60,8 @@ public class PlayerController : MonoBehaviour
 
     public void FollowMousePosition()
     {
-        //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Vector2 curPos = transform.position;
-        //transform.up =  curPos - mousePosition;
         Vector2 direction = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        direction.y = Mathf.Max(Mathf.Abs(direction.x) * 0.1f, direction.y);
-        //transform.up = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        direction.y = Mathf.Max(Mathf.Abs(direction.x) * 0.2f, direction.y);
         transform.up = direction;
     }
 

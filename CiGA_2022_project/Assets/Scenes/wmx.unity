@@ -1011,6 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hookSpeed: 0
+  moveSpeed: 0
 --- !u!50 &2076340785
 Rigidbody2D:
   serializedVersion: 4
@@ -1265,8 +1266,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400022563479310350, guid: 38cfd1bae62b50d448c225d73f4a4f82, type: 3}
-      propertyPath: hookSpeed
-      value: 99
+      propertyPath: moveSpeed
+      value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1779390764293051237, guid: 38cfd1bae62b50d448c225d73f4a4f82, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 38cfd1bae62b50d448c225d73f4a4f82, type: 3}

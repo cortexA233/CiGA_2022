@@ -59,7 +59,8 @@ public class PlayerFSM : BaseFSM
 
         public override void HandleUpdate()
         {
-            Debug.Log("Idle");
+            //Debug.Log("Idle");
+            controller.HandleHorizantalInput();
             controller.FollowMousePosition();
             if (Input.GetMouseButtonDown(0))
             {
@@ -102,7 +103,7 @@ public class PlayerFSM : BaseFSM
 
         public override void HandleUpdate()
         {
-            Debug.Log("Shoot");
+            //Debug.Log("Shoot");
             controller.transform.localScale = new Vector2(controller.transform.localScale.x, controller.transform.localScale.y + controller.hookSpeed * Time.deltaTime);
             controller.hookObj.transform.localScale = new Vector2(controller.hookObj.transform.localScale.x, 6f / controller.transform.localScale.y);
             if (controller.transform.localScale.y > 111f)
@@ -151,7 +152,7 @@ public class PlayerFSM : BaseFSM
 
         public override void HandleUpdate()
         {
-            Debug.Log("Back");
+            //Debug.Log("Back");
             controller.transform.localScale = new Vector2(controller.transform.localScale.x, controller.transform.localScale.y - controller.hookSpeed * Time.deltaTime);
             controller.hookObj.transform.localScale = new Vector2(controller.hookObj.transform.localScale.x, 6f / controller.transform.localScale.y);
             if (controller.transform.localScale.y < 1f)
