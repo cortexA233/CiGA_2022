@@ -379,51 +379,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1282666038
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1282666039}
-  - component: {fileID: 1282666040}
-  m_Layer: 0
-  m_Name: FishController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1282666039
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1282666038}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8825855, y: 0.37746072, z: -2.2868268}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1282666040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1282666038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79f12958e9b362142a8c75978795d0fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Fish: {fileID: 8814363079927171048, guid: ef2edf640852e9a4097351298aab6330, type: 3}
 --- !u!1 &1371166623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7624651502745330802, guid: 29d6f871f8cc2a04d985141c1cbab1c5, type: 3}
@@ -658,3 +613,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!1001 &6471302945991777661
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.8825855
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.37746072
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.2868268
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622858, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471302947265622859, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
+      propertyPath: m_Name
+      value: FishController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0aff613f7c4457844ae29f11546dee2e, type: 3}
